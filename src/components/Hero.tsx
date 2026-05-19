@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-function useCounter(target, suffix, duration, active) {
+function useCounter(target: number, suffix: string, duration: number, active: boolean): string {
   const [display, setDisplay] = useState('0' + suffix)
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function useCounter(target, suffix, duration, active) {
 
 export default function Hero() {
   const [active, setActive] = useState(false)
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,26 +53,25 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-left">
           <div className="hero-eyebrow" aria-hidden="true">
-            <span>A Mission-Led NGO</span>
+            <span>Registered NGO · 80G Certified · India's First Green Hydrogen NGO</span>
           </div>
           <h1 className="hero-title">
-            Where Every<br />
-            <em>Action Heals</em><br />
-            the Planet &<br />
-            Honors Heroes
+            Right to<br />
+            <em>Climate</em>
           </h1>
+          <p className="hero-tagline">Ab Bharat Ke Har Khet Me Tel Ka Kua Hoga</p>
           <p className="hero-sub">
-            Climate action should create human impact too. We unite sustainability, art, and service — every contribution restores nature and strengthens lives.
+            India's first NGO working on Green Hydrogen Fuel — connecting climate responsibility, sustainability, and nation-building through clean energy and social impact initiatives.
           </p>
           <div className="hero-btns">
             <a href="#involve" className="btn-primary">Donate Now</a>
-            <a href="#causes" className="btn-outline">Explore Impact</a>
+            <a href="#green-hydrogen" className="btn-outline">Green Hydrogen Initiative</a>
           </div>
         </div>
         <div className="hero-right" aria-label="Impact statistics">
           <div className="hero-stat-card">
             <div className="num" aria-live="polite">{trees}</div>
-            <div className="label">Trees planted across India through our restoration drives</div>
+            <div className="label">Native trees planted across India — survival rate 87%</div>
           </div>
           <div className="hero-stat-grid">
             <div className="hero-stat-sm">

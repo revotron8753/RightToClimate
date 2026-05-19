@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { href: '#about',   label: 'About' },
-  { href: '#causes',  label: 'Causes' },
-  { href: '#how',     label: 'Funding' },
-  { href: '#csr',     label: 'CSR' },
-  { href: '#gallery', label: 'Gallery' },
-  { href: '#stories', label: 'Stories' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#founders',        label: 'Founders' },
+  { href: '#mission',         label: 'Mission' },
+  { href: '#accreditations',  label: 'Accreditations' },
+  { href: '#green-hydrogen',  label: 'Green Hydrogen' },
+  { href: '#past-events',     label: 'Past Events' },
+  { href: '#csr',             label: 'Partner With Us' },
+  { href: '#contact',         label: 'Contact' },
 ]
 
-function scrollTo(href) {
+function scrollTo(href: string): void {
   const id = href.replace('#', '')
   const target = document.getElementById(id)
   if (!target) return
@@ -20,9 +20,9 @@ function scrollTo(href) {
 }
 
 export default function Nav() {
-  const [scrolled, setScrolled]       = useState(false)
-  const [mobileOpen, setMobileOpen]   = useState(false)
-  const [activeSection, setActive]    = useState('')
+  const [scrolled, setScrolled]     = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActive]  = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -40,7 +40,7 @@ export default function Nav() {
     return () => observer.disconnect()
   }, [])
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     scrollTo(href)
     setMobileOpen(false)

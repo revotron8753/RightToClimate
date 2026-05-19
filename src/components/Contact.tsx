@@ -1,22 +1,36 @@
 import { useState } from 'react'
 
-const EMPTY_FORM = { name: '', organization: '', email: '', phone: '', purpose: '', message: '' }
+interface FormState {
+  name: string
+  organization: string
+  email: string
+  phone: string
+  purpose: string
+  message: string
+}
 
-function isValidEmail(email) {
+interface FeedbackState {
+  msg: string
+  type: 'success' | 'error'
+}
+
+const EMPTY_FORM: FormState = { name: '', organization: '', email: '', phone: '', purpose: '', message: '' }
+
+function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 export default function Contact() {
-  const [form, setForm]           = useState(EMPTY_FORM)
+  const [form, setForm]             = useState<FormState>(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
-  const [feedback, setFeedback]   = useState(null) // { msg, type }
+  const [feedback, setFeedback]     = useState<FeedbackState | null>(null)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setForm(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setFeedback({ msg: 'Please fill in all required fields.', type: 'error' })
@@ -44,7 +58,7 @@ export default function Contact() {
             Let's Build<br /><em>Impact Together</em>
           </h2>
           <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: 1.9, marginTop: '1rem', fontWeight: 300 }}>
-            Whether you're a corporation looking for a CSR partner, an individual who wants to donate, or an artist who wants to contribute — we want to hear from you.
+            For CSR partnerships, sponsorships, strategic collaborations, and sustainability initiatives — reach out to be part of India's first Green Hydrogen NGO and a movement that combines climate responsibility with national service.
           </p>
           <div className="contact-details">
             <div className="contact-item">
@@ -67,7 +81,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Social links instead of duplicate leadership */}
           <div className="social-links">
             <a href="#" className="social-link" aria-label="Instagram" title="Instagram">
               <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
@@ -113,10 +126,11 @@ export default function Contact() {
                 <option value="">Select purpose...</option>
                 <option value="donation">Donation</option>
                 <option value="csr">CSR Partnership</option>
-                <option value="art">Art Purchase / Corporate Gift</option>
+                <option value="sponsorship">Sponsorship</option>
+                <option value="green-hydrogen">Green Hydrogen Initiative</option>
+                <option value="art">Art Exhibition / Collaboration</option>
                 <option value="volunteer">Volunteer</option>
-                <option value="sponsor">Sponsoring a Child</option>
-                <option value="event">Host an Event</option>
+                <option value="event">Host an Event / Plantation Drive</option>
                 <option value="media">Media / Press</option>
                 <option value="other">Other</option>
               </select>

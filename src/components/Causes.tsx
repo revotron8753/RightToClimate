@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-function useReveal(ref, delay = 0) {
+function useReveal(ref: { current: HTMLElement | null }, delay = 0): void {
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -14,8 +14,17 @@ function useReveal(ref, delay = 0) {
   }, [])
 }
 
-function CauseCard({ num, tag, title, description, items, delay }) {
-  const ref = useRef(null)
+interface CauseCardProps {
+  num: string
+  tag: string
+  title: string
+  description: string
+  items: string[]
+  delay: number
+}
+
+function CauseCard({ num, tag, title, description, items, delay }: CauseCardProps) {
+  const ref = useRef<HTMLElement>(null)
   useReveal(ref, delay)
 
   return (
@@ -26,7 +35,7 @@ function CauseCard({ num, tag, title, description, items, delay }) {
       <h3 className="cause-title">{title}</h3>
       <p className="cause-p">{description}</p>
       <ul className="cause-items">
-        {items.map((item, i) => <li key={i}>{item}</li>)}
+        {items.map((item) => <li key={item}>{item}</li>)}
       </ul>
     </article>
   )

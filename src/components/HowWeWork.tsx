@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-function useReveal(ref, delay = 0) {
+function useReveal(ref: { current: HTMLElement | null }, delay = 0): void {
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -14,9 +14,14 @@ function useReveal(ref, delay = 0) {
   }, [])
 }
 
-function AllocBar({ label, percentage }) {
+interface AllocBarProps {
+  label: string
+  percentage: number
+}
+
+function AllocBar({ label, percentage }: AllocBarProps) {
   const [animated, setAnimated] = useState(false)
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,8 +56,15 @@ function AllocBar({ label, percentage }) {
   )
 }
 
-function FundingItem({ icon, title, desc, delay }) {
-  const ref = useRef(null)
+interface FundingItemProps {
+  icon: string
+  title: string
+  desc: string
+  delay: number
+}
+
+function FundingItem({ icon, title, desc, delay }: FundingItemProps) {
+  const ref = useRef<HTMLDivElement>(null)
   useReveal(ref, delay)
   return (
     <div className="funding-item reveal-hidden" ref={ref}>

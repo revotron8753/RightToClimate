@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-function useReveal(ref, delay = 0) {
+function useReveal(ref: { current: HTMLElement | null }, delay = 0): void {
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -14,8 +14,19 @@ function useReveal(ref, delay = 0) {
   }, [])
 }
 
-function PillarCard({ iconClass, iconPath, tag, tagClass, title, description, items, delay }) {
-  const ref = useRef(null)
+interface PillarCardProps {
+  iconClass: string
+  iconPath: string
+  tag: string
+  tagClass: string
+  title: string
+  description: string
+  items: string[]
+  delay: number
+}
+
+function PillarCard({ iconClass, iconPath, tag, tagClass, title, description, items, delay }: PillarCardProps) {
+  const ref = useRef<HTMLElement>(null)
   useReveal(ref, delay)
 
   return (
@@ -27,14 +38,14 @@ function PillarCard({ iconClass, iconPath, tag, tagClass, title, description, it
       <h3>{title}</h3>
       <p>{description}</p>
       <ul className="pillar-items">
-        {items.map((item, i) => <li key={i}>{item}</li>)}
+        {items.map((item) => <li key={item}>{item}</li>)}
       </ul>
       <a href="#causes" className="pillar-learn-more">Learn more →</a>
     </article>
   )
 }
 
-const PILLARS = [
+const PILLARS: PillarCardProps[] = [
   {
     iconClass: 'pillar-icon--planet',
     iconPath: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>',
@@ -43,6 +54,7 @@ const PILLARS = [
     title: 'Restore the Earth',
     description: 'We lead science-backed climate action through tree plantations, biodiversity restoration, and sustainability-first campaigns that create lasting ecological change across India.',
     items: ['Mass tree plantation drives', 'Water conservation initiatives', 'Waste management awareness', 'Carbon-conscious campaigns', 'ESG-aligned programs'],
+    delay: 0,
   },
   {
     iconClass: 'pillar-icon--purpose',
@@ -52,6 +64,7 @@ const PILLARS = [
     title: 'Art with Meaning',
     description: 'Every painting, exhibition, and creative campaign carries a deeper purpose — raising funds, building awareness, and connecting donors to the heart of our mission through culture.',
     items: ['Charity art auctions', 'Impact-driven exhibitions', 'Eco-art installations & campaigns', 'Corporate gifting collections', 'Youth creativity programs'],
+    delay: 0,
   },
   {
     iconClass: 'pillar-icon--people',
@@ -61,6 +74,7 @@ const PILLARS = [
     title: 'Honor Our Heroes',
     description: 'The families of those who served deserve gratitude in action. We provide education, livelihood training, and dignity to war widows and their children across the country.',
     items: ['Financial support for war widows', 'Education sponsorships', 'Livelihood skill training', "Children's scholarships", 'Community empowerment'],
+    delay: 0,
   },
 ]
 
