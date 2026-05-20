@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import logoSvg from '../public/Logo.svg'
+
+const logoSvg = '/Logo.svg'
 
 const NAV_LINKS = [
   { href: '#founders',        label: 'Founders' },

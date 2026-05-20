@@ -1,4 +1,4 @@
-import logoSvg from '../public/Logo.svg'
+const logoSvg = '/Logo.svg'
 
 const CAUSES_LINKS = ['Climate & Sustainability', 'War Widows Support', 'Art & Culture', "Children's Education"]
 const INVOLVE_LINKS = [
