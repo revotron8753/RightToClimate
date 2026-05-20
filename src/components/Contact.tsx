@@ -152,8 +152,8 @@ export default function Contact() {
                 borderRadius: '4px',
                 fontSize: '13px',
                 textAlign: 'center',
-                background: feedback.type === 'success' ? 'rgba(26, 77, 46, 0.1)' : 'rgba(180, 40, 40, 0.08)',
-                border: feedback.type === 'success' ? '1px solid rgba(26, 77, 46, 0.3)' : '1px solid rgba(180, 40, 40, 0.25)',
+                background: feedback.type === 'success' ? 'rgba(83, 98, 89, 0.1)' : 'rgba(180, 40, 40, 0.08)',
+                border: feedback.type === 'success' ? '1px solid rgba(83, 98, 89, 0.3)' : '1px solid rgba(180, 40, 40, 0.25)',
                 color: feedback.type === 'success' ? 'var(--green)' : '#B42828',
               }}
             >

@@ -31,7 +31,7 @@ export default function OurWork() {
             <h2 className="section-title section-title--white" id="gh-title" style={{ marginTop: '1rem' }}>
               Green Hydrogen <em>NGO</em>
             </h2>
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.9, fontWeight: 300, maxWidth: '540px', marginTop: '1rem' }}>
+            <p style={{ fontSize: '15px', color: 'var(--ink-soft)', lineHeight: 1.9, fontWeight: 400, maxWidth: '540px', marginTop: '1rem' }}>
               Right to Climate is building awareness and action around Green Hydrogen as a future clean energy solution for India's sustainable growth — making us India's first NGO dedicated to this mission.
             </p>
           </div>

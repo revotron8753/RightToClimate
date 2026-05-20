@@ -1,3 +1,5 @@
+import logoSvg from '../public/Logo.svg'
+
 const CAUSES_LINKS = ['Climate & Sustainability', 'War Widows Support', 'Art & Culture', "Children's Education"]
 const INVOLVE_LINKS = [
   { label: 'Donate',           href: '#involve' },
@@ -24,8 +26,13 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="logo-main">Right to Climate</span>
-            <span className="logo-tag">Planet · Purpose · People</span>
+            <div className="footer-brand-row">
+              <img src={logoSvg} alt="Right to Climate Logo" className="footer-logo" />
+              <div>
+                <span className="footer-brand-name">Right to Climate</span>
+                <span className="logo-tag">Serving Nature &amp; Nation</span>
+              </div>
+            </div>
             <p>A mission-led NGO creating verifiable environmental impact while supporting war widows, children's education, and community empowerment through sustainability, art, and culture.</p>
             <p className="footer-reg">NGO Registration (Pending) · 12C / 80G Eligible · CIN Pending</p>
           </div>

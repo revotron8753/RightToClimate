@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logoSvg from '../public/Logo.svg'
 
 const NAV_LINKS = [
   { href: '#founders',        label: 'Founders' },
@@ -49,15 +50,15 @@ export default function Nav() {
   return (
     <nav
       aria-label="Main navigation"
-      style={{
-        background: scrolled ? 'rgba(10, 27, 51, 0.98)' : 'rgba(10, 27, 51, 0.96)',
-        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.3)' : 'none',
-      }}
+      className={scrolled ? 'nav-scrolled' : ''}
     >
       <div className="nav-inner">
-        <a href="#" className="logo" aria-label="Right to Climate Home" onClick={(e) => handleNavClick(e, '#hero')}>
-          <span className="logo-main">Right to Climate</span>
-          <span className="logo-tag">Planet · Purpose · People</span>
+        <a href="#" className="logo-wrap" aria-label="Right to Climate Home" onClick={(e) => handleNavClick(e, '#hero')}>
+          <img src={logoSvg} alt="Right to Climate Logo" className="logo-img" />
+          <span className="logo-meta">
+            <span className="logo-name">Right to Climate</span>
+            <span className="logo-tag">Serving Nature &amp; Nation</span>
+          </span>
         </a>
         <ul className={`nav-links${mobileOpen ? ' mobile-open' : ''}`} role="list">
           {NAV_LINKS.map(({ href, label }) => (
@@ -65,7 +66,7 @@ export default function Nav() {
               <a
                 href={href}
                 onClick={(e) => handleNavClick(e, href)}
-                style={{ color: activeSection === href.slice(1) ? 'var(--gold-light)' : 'rgba(255,255,255,0.75)' }}
+                style={{ color: activeSection === href.slice(1) ? 'var(--orange-deep)' : undefined }}
               >
                 {label}
               </a>

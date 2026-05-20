@@ -8,7 +8,7 @@ const FOUNDERS = [
     img:      dkDassImg,
     alt:      'Colonel DK Dass – Father of RightoClimate',
     tags:     ['Army Veteran', 'Indian Bravehearts', 'Green Hydrogen Advocate', 'Nation Builder'],
-    accent:   'var(--gold-light)',
+    accent:   'var(--orange-deep)',
     theme:    'dark',
     paras: [
       'Colonel DK Dass is not just a retired Army officer — he is a man who has dedicated his life to the nation, both in uniform and beyond it. Born into a proud defence family and educated at the prestigious Rashtriya Military School, Bangalore, Col DK Dass represents discipline, courage, and humanity.',
@@ -23,7 +23,7 @@ const FOUNDERS = [
     img:      kanchanImg,
     alt:      'Kanchan Mehra – Co-Founder at Right to Climate',
     tags:     ['Renowned Visual Artist', '26+ Years of Excellence', 'Social Impact', 'Women Empowerment'],
-    accent:   'var(--green-pale)',
+    accent:   'var(--green)',
     theme:    'light',
     paras: [
       'Kanchan Mehra is a powerful example of how art can create real social impact. A renowned visual artist with over 26 years of creative excellence, she has dedicated her life to turning emotions, culture, and human experiences into meaningful artistic expression. From national exhibitions to empowering women artists, her journey reflects passion, resilience, and purpose.',
