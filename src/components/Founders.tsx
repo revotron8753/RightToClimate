@@ -19,7 +19,7 @@ const FOUNDERS = [
   },
   {
     name:     'Kanchan Mehra',
-    title:    'Co-Founder, Right to Climate · Indian Bravehearts',
+    title:    'Co-Founder, Right to Climate · Vimla Art Forum',
     img:      kanchanImg,
     alt:      'Kanchan Mehra – Co-Founder at Right to Climate',
     tags:     ['Renowned Visual Artist', '26+ Years of Excellence', 'Social Impact', 'Women Empowerment'],
